@@ -128,6 +128,9 @@ of programs and packages.
 %prep
 %setup -c -a0 -a1 -a2
 
+perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
+    texmf/scripts/tetex/updmap.pl
+
 %build
 
 %install
