@@ -16,7 +16,12 @@ Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.doc.tar.xz
 Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.x86_64-linux.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
-Requires(post):	texlive-tlpkg
+Requires(pre):	texlive-tlpkg
+Requires(post):	texlive-kpathsea
+# updmap requires texconfig/tcfmgr
+Requires(post):	texlive-texconfig
+# pdftex requires updmap
+Requires(post):	texlive-pdftex.bin
 Provides:	texlive-tetex.bin = %{EVRD}
 Provides:	tetex = %{version}
 Conflicts:	texlive-texmf <= 20110705-3
@@ -95,7 +100,7 @@ of programs and packages.
 %{_texmfdir}/fonts/map/dvips/tetex/ps2pk35.map
 %{_texmfdir}/scripts/tetex/updmap-sys.sh
 %{_texmfdir}/scripts/tetex/updmap.pl
-%config(noreplace) %{_texmfdir}/web2c/updmap.cfg
+%ghost %{_texmfdir}/web2c/updmap.cfg
 %doc %{_mandir}/man1/allcm.1*
 %doc %{_texmfdir}/doc/man/man1/allcm.man1.pdf
 %doc %{_mandir}/man1/allec.1*
