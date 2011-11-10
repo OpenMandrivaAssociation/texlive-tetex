@@ -1,4 +1,4 @@
-# revision 24417
+# revision 24558
 # category TLCore
 # catalog-ctan /obsolete/systems/unix/teTeX
 # catalog-date 2009-11-10 12:26:23 +0100
@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	1
+Release:	2
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
@@ -92,7 +92,6 @@ of programs and packages.
 %{_texmfdir}/fonts/enc/dvips/tetex/f7b6d320.enc
 %{_texmfdir}/fonts/enc/dvips/tetex/mtex.enc
 %{_texmfdir}/fonts/map/dvips/tetex/README
-%{_texmfdir}/fonts/map/dvips/tetex/cid-base.map
 %{_texmfdir}/fonts/map/dvips/tetex/dvipdfm35.map
 %{_texmfdir}/fonts/map/dvips/tetex/dvips35.map
 %{_texmfdir}/fonts/map/dvips/tetex/mathpple.map
