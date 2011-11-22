@@ -1,4 +1,4 @@
-# revision 24558
+# revision 24603
 # category TLCore
 # catalog-ctan /obsolete/systems/unix/teTeX
 # catalog-date 2009-11-10 12:26:23 +0100
@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	3
+Release:	4
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
@@ -99,7 +99,7 @@ of programs and packages.
 %{_texmfdir}/fonts/map/dvips/tetex/ps2pk35.map
 %{_texmfdir}/scripts/tetex/updmap-sys.sh
 %{_texmfdir}/scripts/tetex/updmap.pl
-%ghost %{_texmfdir}/web2c/updmap.cfg
+%config(noreplace) %{_texmfdir}/web2c/updmap.cfg
 %doc %{_mandir}/man1/allcm.1*
 %doc %{_texmfdir}/doc/man/man1/allcm.man1.pdf
 %doc %{_mandir}/man1/allec.1*
