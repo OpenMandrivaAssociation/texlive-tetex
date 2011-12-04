@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	4
+Release:	5
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
@@ -23,7 +23,6 @@ Requires(post):	texlive-texconfig
 # pdftex requires updmap
 Requires(post):	texlive-pdftex.bin
 Provides:	texlive-tetex.bin = %{EVRD}
-%rename tetex
 Conflicts:	texlive-texmf <= 20110705-3
 Conflicts:	texlive-doc <= 20110705-3
 
