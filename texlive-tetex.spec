@@ -23,8 +23,6 @@ Requires(post):	texlive-texconfig
 # pdftex requires updmap
 Requires(post):	texlive-pdftex.bin
 Provides:	texlive-tetex.bin = %{EVRD}
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 teTeX was a comprehensive distribution of TeX, LaTeX and
@@ -38,20 +36,12 @@ available when installing TeX live provides a configuration
 very close to that of the old teTeX, but using modern versions
 of programs and packages.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -125,7 +115,6 @@ of programs and packages.
 %doc %{_texmfdir}/doc/man/man5/updmap.cfg.man5.pdf
 %doc %{_texmfdir}/doc/tetex/TETEXDOC.pdf
 %doc %{_texmfdir}/doc/tetex/teTeX-FAQ
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -150,5 +139,3 @@ mkdir -p %{buildroot}%{_mandir}/man1
 mv %{buildroot}%{_texmfdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_mandir}/man5
 mv %{buildroot}%{_texmfdir}/doc/man/man5/*.5 %{buildroot}%{_mandir}/man5
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
