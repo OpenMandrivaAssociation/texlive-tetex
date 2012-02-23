@@ -1,4 +1,4 @@
-# revision 25279
+# revision 25424
 # category TLCore
 # catalog-ctan /obsolete/systems/unix/teTeX
 # catalog-date 2009-11-10 12:26:23 +0100
@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	9
+Release:	10
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
