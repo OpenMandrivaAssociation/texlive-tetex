@@ -1,19 +1,18 @@
-# revision 27265
+# revision 28033
 # category TLCore
 # catalog-ctan /obsolete/systems/unix/teTeX
-# catalog-date 2012-06-22 15:50:13 +0200
+# catalog-date 2012-09-11 08:43:58 +0200
 # catalog-license other-free
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	12
+Release:	13
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.x86_64-linux.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,7 +25,7 @@ Provides:	texlive-tetex.bin = %{EVRD}
 
 %description
 teTeX was a comprehensive distribution of TeX, LaTeX and
-family, designed to for ease of compilation, installation and
+family, designed for ease of compilation, installation and
 customisation. In 2006, Thomas Esser announced he would no
 longer be able to support, or to produce new versions of,
 teTeX. With the appearance of TeX live 2007 (whose Unix-system
@@ -53,12 +52,23 @@ of programs and packages.
 %{_bindir}/dvired
 %{_bindir}/fmtutil
 %{_bindir}/fmtutil-sys
+#needs texlive-kpathsea.bin rebuilt
+#%%{_bindir}/kpsetool
 %{_bindir}/kpsewhere
 %{_bindir}/texconfig-dialog
 %{_bindir}/texconfig-sys
 %{_bindir}/texlinks
 %{_bindir}/updmap
 %{_bindir}/updmap-sys
+%{_texmfdistdir}/scripts/tetex/allcm.sh
+%{_texmfdistdir}/scripts/tetex/allneeded.sh
+%{_texmfdistdir}/scripts/tetex/dvi2fax.sh
+%{_texmfdistdir}/scripts/tetex/dvired.sh
+%{_texmfdistdir}/scripts/tetex/kpsetool.sh
+%{_texmfdistdir}/scripts/tetex/kpsewhere.sh
+%{_texmfdistdir}/scripts/tetex/updmap-sys.sh
+%{_texmfdistdir}/scripts/tetex/updmap.pl
+%{_texmfdistdir}/web2c/updmap.cfg
 %{_texmfdir}/dvips/tetex/config.builtin35
 %{_texmfdir}/dvips/tetex/config.dfaxhigh
 %{_texmfdir}/dvips/tetex/config.dfaxlo
@@ -86,8 +96,11 @@ of programs and packages.
 %{_texmfdir}/fonts/map/dvips/tetex/mathpple.map
 %{_texmfdir}/fonts/map/dvips/tetex/pdftex35.map
 %{_texmfdir}/fonts/map/dvips/tetex/ps2pk35.map
-%{_texmfdir}/scripts/tetex/updmap-sys.sh
-%{_texmfdir}/scripts/tetex/updmap.pl
+%{_texmfdir}/scripts/tetex/fmtutil-sys.sh
+%{_texmfdir}/scripts/tetex/fmtutil.sh
+%{_texmfdir}/scripts/tetex/texconfig-dialog.sh
+%{_texmfdir}/scripts/tetex/texconfig-sys.sh
+%{_texmfdir}/scripts/tetex/texlinks.sh
 %config(noreplace) %{_texmfdir}/web2c/updmap.cfg
 %doc %{_mandir}/man1/allcm.1*
 %doc %{_texmfdir}/doc/man/man1/allcm.man1.pdf
@@ -103,6 +116,14 @@ of programs and packages.
 %doc %{_texmfdir}/doc/man/man1/fmtutil-sys.man1.pdf
 %doc %{_mandir}/man1/fmtutil.1*
 %doc %{_texmfdir}/doc/man/man1/fmtutil.man1.pdf
+%doc %{_mandir}/man1/kpsepath.1*
+%doc %{_texmfdir}/doc/man/man1/kpsepath.man1.pdf
+%doc %{_mandir}/man1/kpsetool.1*
+%doc %{_texmfdir}/doc/man/man1/kpsetool.man1.pdf
+%doc %{_mandir}/man1/kpsewhere.1*
+%doc %{_texmfdir}/doc/man/man1/kpsewhere.man1.pdf
+%doc %{_mandir}/man1/kpsexpand.1*
+%doc %{_texmfdir}/doc/man/man1/kpsexpand.man1.pdf
 %doc %{_mandir}/man1/texlinks.1*
 %doc %{_texmfdir}/doc/man/man1/texlinks.man1.pdf
 %doc %{_mandir}/man1/updmap-sys.1*
@@ -118,7 +139,7 @@ of programs and packages.
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a0 -a1
 
 perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
     texmf/scripts/tetex/updmap.pl
@@ -128,14 +149,32 @@ perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
 %install
 # only scripts
 mkdir -p %{buildroot}%{_bindir}
-cp -fpa bin/x86_64-linux/* %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
     ln -sf %{_texmfdir}/scripts/tetex/updmap.pl updmap
     ln -sf %{_texmfdir}/scripts/tetex/updmap-sys.sh updmap-sys
+    ln -sf %{_texmfdistdir}/scripts/tetex/allcm.sh allcm
+    ln -sf allcm allec
+    ln -sf %{_texmfdistdir}/scripts/tetex/allneeded.sh allneeded
+    ln -sf %{_texmfdistdir}/scripts/tetex/dvi2fax.sh dvi2fax
+    ln -sf %{_texmfdistdir}/scripts/tetex/dvired.sh dvired
+    ln -sf %{_texmfdir}/scripts/tetex/fmtutil.sh fmtutil
+    ln -sf %{_texmfdir}/scripts/tetex/fmtutil-sys.sh fmtutil-sys
+    #needs texlive-kpathsea.bin rebuilt
+    #ln -sf kpsepath kpsetool
+    #ln -sf kpsexpand kpsetool
+    ln -sf %{_texmfdistdir}/scripts/tetex/kpsetool.sh kpsetool
+    ln -sf %{_texmfdistdir}/scripts/tetex/kpsewhere.sh kpsewhere
+    ln -sf %{_texmfdir}/scripts/tetex/texconfig-dialog.sh texconfig-dialog
+    ln -sf %{_texmfdir}/scripts/tetex/texconfig-sys.sh texconfig-sys
+    ln -sf %{_texmfdir}/scripts/tetex/texlinks.sh texlinks
+    ln -sf %{_texmfdistdir}/scripts/tetex/updmap.pl updmap
+    ln -sf %{_texmfdistdir}/scripts/tetex/updmap-sys.sh updmap-sys
 popd
 mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf %{buildroot}%{_datadir}
+cp -fpar texmf texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_mandir}/man1
 mv %{buildroot}%{_texmfdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_mandir}/man5
 mv %{buildroot}%{_texmfdir}/doc/man/man5/*.5 %{buildroot}%{_mandir}/man5
+
+rm -f %{buildroot}%{_bindir}/kpsetool
