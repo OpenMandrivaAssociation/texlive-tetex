@@ -52,7 +52,7 @@ of programs and packages.
 %{_bindir}/dvired
 %{_bindir}/fmtutil
 %{_bindir}/fmtutil-sys
-#needs texlive-kpathsea.bin rebuilt
+# installed by texlive-kpathsea.bin
 #%%{_bindir}/kpsetool
 %{_bindir}/kpsewhere
 %{_bindir}/texconfig-dialog
@@ -147,7 +147,6 @@ perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
 %build
 
 %install
-# only scripts
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
     ln -sf %{_texmfdir}/scripts/tetex/updmap.pl updmap
@@ -159,7 +158,7 @@ pushd %{buildroot}%{_bindir}
     ln -sf %{_texmfdistdir}/scripts/tetex/dvired.sh dvired
     ln -sf %{_texmfdir}/scripts/tetex/fmtutil.sh fmtutil
     ln -sf %{_texmfdir}/scripts/tetex/fmtutil-sys.sh fmtutil-sys
-    #needs texlive-kpathsea.bin rebuilt
+    # installed by texlive-kpathsea.bin
     #ln -sf kpsepath kpsetool
     #ln -sf kpsexpand kpsetool
     ln -sf %{_texmfdistdir}/scripts/tetex/kpsetool.sh kpsetool
@@ -176,5 +175,4 @@ mkdir -p %{buildroot}%{_mandir}/man1
 mv %{buildroot}%{_texmfdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_mandir}/man5
 mv %{buildroot}%{_texmfdir}/doc/man/man5/*.5 %{buildroot}%{_mandir}/man5
-
 rm -f %{buildroot}%{_bindir}/kpsetool
