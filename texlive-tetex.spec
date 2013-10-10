@@ -1,19 +1,18 @@
-# revision 27265
+# revision 31860
 # category TLCore
 # catalog-ctan /obsolete/systems/unix/teTeX
-# catalog-date 2012-06-22 15:50:13 +0200
+# catalog-date 2012-09-11 08:43:58 +0200
 # catalog-license other-free
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	12
+Release:	13
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.doc.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.x86_64-linux.tar.xz
 BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
@@ -26,7 +25,7 @@ Provides:	texlive-tetex.bin = %{EVRD}
 
 %description
 teTeX was a comprehensive distribution of TeX, LaTeX and
-family, designed to for ease of compilation, installation and
+family, designed for ease of compilation, installation and
 customisation. In 2006, Thomas Esser announced he would no
 longer be able to support, or to produce new versions of,
 teTeX. With the appearance of TeX live 2007 (whose Unix-system
@@ -59,66 +58,89 @@ of programs and packages.
 %{_bindir}/texlinks
 %{_bindir}/updmap
 %{_bindir}/updmap-sys
-%{_texmfdir}/dvips/tetex/config.builtin35
-%{_texmfdir}/dvips/tetex/config.dfaxhigh
-%{_texmfdir}/dvips/tetex/config.dfaxlo
-%{_texmfdir}/dvips/tetex/config.download35
-%{_texmfdir}/dvips/tetex/config.gsftopk
-%{_texmfdir}/dvips/tetex/config.outline
-%{_texmfdir}/dvips/tetex/config.pdf
-%{_texmfdir}/dvips/tetex/config.pk
-%{_texmfdir}/dvips/tetex/config.www
-%{_texmfdir}/fonts/enc/dvips/tetex/09fbbfac.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/0ef0afca.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/10037936.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/1b6d048e.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/71414f53.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/74afc74c.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/aae443f0.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/b6a4d7c7.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/bbad153f.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/d9b29452.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/f7b6d320.enc
-%{_texmfdir}/fonts/enc/dvips/tetex/mtex.enc
-%{_texmfdir}/fonts/map/dvips/tetex/README
-%{_texmfdir}/fonts/map/dvips/tetex/dvipdfm35.map
-%{_texmfdir}/fonts/map/dvips/tetex/dvips35.map
-%{_texmfdir}/fonts/map/dvips/tetex/mathpple.map
-%{_texmfdir}/fonts/map/dvips/tetex/pdftex35.map
-%{_texmfdir}/fonts/map/dvips/tetex/ps2pk35.map
-%{_texmfdir}/scripts/tetex/updmap-sys.sh
-%{_texmfdir}/scripts/tetex/updmap.pl
-%config(noreplace) %{_texmfdir}/web2c/updmap.cfg
+%{_texmfdistdir}/dvips/tetex/config.builtin35
+%{_texmfdistdir}/dvips/tetex/config.dfaxhigh
+%{_texmfdistdir}/dvips/tetex/config.dfaxlo
+%{_texmfdistdir}/dvips/tetex/config.download35
+%{_texmfdistdir}/dvips/tetex/config.gsftopk
+%{_texmfdistdir}/dvips/tetex/config.maxmem
+%{_texmfdistdir}/dvips/tetex/config.outline
+%{_texmfdistdir}/dvips/tetex/config.pdf
+%{_texmfdistdir}/dvips/tetex/config.pk
+%{_texmfdistdir}/dvips/tetex/config.www
+%{_texmfdistdir}/fonts/enc/dvips/tetex/09fbbfac.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/0ef0afca.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/10037936.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/1b6d048e.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/71414f53.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/74afc74c.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/aae443f0.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/b6a4d7c7.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/bbad153f.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/d9b29452.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/f7b6d320.enc
+%{_texmfdistdir}/fonts/enc/dvips/tetex/mtex.enc
+%{_texmfdistdir}/fonts/map/dvips/tetex/Makefile
+%{_texmfdistdir}/fonts/map/dvips/tetex/README
+%{_texmfdistdir}/fonts/map/dvips/tetex/base14flags.ltx
+%{_texmfdistdir}/fonts/map/dvips/tetex/base14flags.tex
+%{_texmfdistdir}/fonts/map/dvips/tetex/dvipdfm35.map
+%{_texmfdistdir}/fonts/map/dvips/tetex/dvips35.map
+%{_texmfdistdir}/fonts/map/dvips/tetex/mathpple.map
+%{_texmfdistdir}/fonts/map/dvips/tetex/pdftex35.map
+%{_texmfdistdir}/fonts/map/dvips/tetex/ps2pk35.map
+%{_texmfdistdir}/scripts/texlive/allcm.sh
+%{_texmfdistdir}/scripts/texlive/allneeded.sh
+%{_texmfdistdir}/scripts/texlive/dvi2fax.sh
+%{_texmfdistdir}/scripts/texlive/dvired.sh
+%{_texmfdistdir}/scripts/texlive/fmtutil-sys.sh
+%{_texmfdistdir}/scripts/texlive/fmtutil.sh
+%{_texmfdistdir}/scripts/texlive/kpsetool.sh
+%{_texmfdistdir}/scripts/texlive/kpsewhere.sh
+%{_texmfdistdir}/scripts/texlive/texconfig-dialog.sh
+%{_texmfdistdir}/scripts/texlive/texconfig-sys.sh
+%{_texmfdistdir}/scripts/texlive/texlinks.sh
+%{_texmfdistdir}/scripts/texlive/updmap-sys.sh
+%{_texmfdistdir}/scripts/texlive/updmap.pl
+%{_texmfdistdir}/web2c/updmap.cfg
 %doc %{_mandir}/man1/allcm.1*
-%doc %{_texmfdir}/doc/man/man1/allcm.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/allcm.man1.pdf
 %doc %{_mandir}/man1/allec.1*
-%doc %{_texmfdir}/doc/man/man1/allec.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/allec.man1.pdf
 %doc %{_mandir}/man1/allneeded.1*
-%doc %{_texmfdir}/doc/man/man1/allneeded.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/allneeded.man1.pdf
 %doc %{_mandir}/man1/dvi2fax.1*
-%doc %{_texmfdir}/doc/man/man1/dvi2fax.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/dvi2fax.man1.pdf
 %doc %{_mandir}/man1/dvired.1*
-%doc %{_texmfdir}/doc/man/man1/dvired.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/dvired.man1.pdf
 %doc %{_mandir}/man1/fmtutil-sys.1*
-%doc %{_texmfdir}/doc/man/man1/fmtutil-sys.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/fmtutil-sys.man1.pdf
 %doc %{_mandir}/man1/fmtutil.1*
-%doc %{_texmfdir}/doc/man/man1/fmtutil.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/fmtutil.man1.pdf
+%doc %{_mandir}/man1/kpsepath.1*
+%doc %{_texmfdistdir}/doc/man/man1/kpsepath.man1.pdf
+%doc %{_mandir}/man1/kpsetool.1*
+%doc %{_texmfdistdir}/doc/man/man1/kpsetool.man1.pdf
+%doc %{_mandir}/man1/kpsewhere.1*
+%doc %{_texmfdistdir}/doc/man/man1/kpsewhere.man1.pdf
+%doc %{_mandir}/man1/kpsexpand.1*
+%doc %{_texmfdistdir}/doc/man/man1/kpsexpand.man1.pdf
 %doc %{_mandir}/man1/texlinks.1*
-%doc %{_texmfdir}/doc/man/man1/texlinks.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/texlinks.man1.pdf
 %doc %{_mandir}/man1/updmap-sys.1*
-%doc %{_texmfdir}/doc/man/man1/updmap-sys.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/updmap-sys.man1.pdf
 %doc %{_mandir}/man1/updmap.1*
-%doc %{_texmfdir}/doc/man/man1/updmap.man1.pdf
+%doc %{_texmfdistdir}/doc/man/man1/updmap.man1.pdf
 %doc %{_mandir}/man5/fmtutil.cnf.5*
-%doc %{_texmfdir}/doc/man/man5/fmtutil.cnf.man5.pdf
+%doc %{_texmfdistdir}/doc/man/man5/fmtutil.cnf.man5.pdf
 %doc %{_mandir}/man5/updmap.cfg.5*
-%doc %{_texmfdir}/doc/man/man5/updmap.cfg.man5.pdf
-%doc %{_texmfdir}/doc/tetex/TETEXDOC.pdf
-%doc %{_texmfdir}/doc/tetex/teTeX-FAQ
+%doc %{_texmfdistdir}/doc/man/man5/updmap.cfg.man5.pdf
+%doc %{_texmfdistdir}/doc/tetex/TETEXDOC.pdf
+%doc %{_texmfdistdir}/doc/tetex/teTeX-FAQ
 
 #-----------------------------------------------------------------------
 %prep
-%setup -c -a0 -a1 -a2
+%setup -c -a0 -a1
 
 perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
     texmf/scripts/tetex/updmap.pl
@@ -126,70 +148,29 @@ perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
 %build
 
 %install
-# only scripts
 mkdir -p %{buildroot}%{_bindir}
-cp -fpa bin/x86_64-linux/* %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    ln -sf %{_texmfdir}/scripts/tetex/updmap.pl updmap
-    ln -sf %{_texmfdir}/scripts/tetex/updmap-sys.sh updmap-sys
+    ln -sf %{_texmfdistdir}/scripts/tetex/updmap.pl updmap
+    ln -sf %{_texmfdistdir}/scripts/tetex/updmap-sys.sh updmap-sys
+    ln -sf %{_texmfdistdir}/scripts/tetex/allcm.sh allcm
+    ln -sf allcm allec
+    ln -sf %{_texmfdistdir}/scripts/tetex/allneeded.sh allneeded
+    ln -sf %{_texmfdistdir}/scripts/tetex/dvi2fax.sh dvi2fax
+    ln -sf %{_texmfdistdir}/scripts/tetex/dvired.sh dvired
+    ln -sf %{_texmfdistdir}/scripts/tetex/fmtutil.sh fmtutil
+    ln -sf %{_texmfdistdir}/scripts/tetex/fmtutil-sys.sh fmtutil-sys
+    ln -sf %{_texmfdistdir}/scripts/tetex/kpsetool.sh kpsetool
+    ln -sf %{_texmfdistdir}/scripts/tetex/kpsewhere.sh kpsewhere
+    ln -sf %{_texmfdistdir}/scripts/tetex/texconfig-dialog.sh texconfig-dialog
+    ln -sf %{_texmfdistdir}/scripts/tetex/texconfig-sys.sh texconfig-sys
+    ln -sf %{_texmfdistdir}/scripts/tetex/texlinks.sh texlinks
+    ln -sf %{_texmfdistdir}/scripts/tetex/updmap.pl updmap
+    ln -sf %{_texmfdistdir}/scripts/tetex/updmap-sys.sh updmap-sys
 popd
 mkdir -p %{buildroot}%{_datadir}
-cp -fpar texmf %{buildroot}%{_datadir}
+cp -fpar texmf-dist %{buildroot}%{_datadir}
 mkdir -p %{buildroot}%{_mandir}/man1
-mv %{buildroot}%{_texmfdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
+mv %{buildroot}%{_texmfdistdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_mandir}/man5
-mv %{buildroot}%{_texmfdir}/doc/man/man5/*.5 %{buildroot}%{_mandir}/man5
-
-
-%changelog
-* Wed Aug 08 2012 Paulo Andrade <pcpa@mandriva.com.br> 3.0-12
-+ Revision: 812889
-- Update to latest release.
-
-* Mon Jun 11 2012 Paulo Andrade <pcpa@mandriva.com.br> 3.0-11
-+ Revision: 805103
-- Update to latest release.
-
-* Thu Feb 23 2012 Paulo Andrade <pcpa@mandriva.com.br> 3.0-10
-+ Revision: 779668
-- Update to latest release.
-
-* Wed Feb 08 2012 Paulo Andrade <pcpa@mandriva.com.br> 3.0-9
-+ Revision: 772165
-- Update to latest release.
-
-* Tue Jan 31 2012 Paulo Andrade <pcpa@mandriva.com.br> 3.0-8
-+ Revision: 770296
-- Update to latest upstream package
-
-* Thu Jan 19 2012 Paulo Andrade <pcpa@mandriva.com.br> 3.0-7
-+ Revision: 762728
-- Update to latest upstream package
-
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 3.0-6
-+ Revision: 756591
-- Rebuild to reduce used resources
-
-* Sun Dec 04 2011 Paulo Andrade <pcpa@mandriva.com.br> 3.0-5
-+ Revision: 737654
-- Provide tetex in scheme-tetex package.
-
-* Tue Nov 22 2011 Paulo Andrade <pcpa@mandriva.com.br> 3.0-4
-+ Revision: 732491
-- texlive-tetex
-
-* Sat Nov 12 2011 Paulo Andrade <pcpa@mandriva.com.br> 3.0-3
-+ Revision: 730296
-- Use the rename macro instead of a single provides for tetex.
-
-* Thu Nov 10 2011 Paulo Andrade <pcpa@mandriva.com.br> 3.0-2
-+ Revision: 729699
-- texlive-tetex
-
-* Sat Nov 05 2011 Paulo Andrade <pcpa@mandriva.com.br> 3.0-1
-+ Revision: 719671
-- texlive-tetex
-- texlive-tetex
-- texlive-tetex
-- texlive-tetex
-
+mv %{buildroot}%{_texmfdistdir}/doc/man/man5/*.5 %{buildroot}%{_mandir}/man5
+rm -f %{buildroot}%{_bindir}/kpsetool
