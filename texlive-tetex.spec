@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	13
+Release:	14
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
@@ -102,7 +102,7 @@ of programs and packages.
 %{_texmfdistdir}/scripts/texlive/texlinks.sh
 %{_texmfdistdir}/scripts/texlive/updmap-sys.sh
 %{_texmfdistdir}/scripts/texlive/updmap.pl
-%{_texmfdistdir}/web2c/updmap.cfg
+%config(noreplace) %{_texmfdistdir}/web2c/updmap.cfg
 %doc %{_mandir}/man1/allcm.1*
 %doc %{_texmfdistdir}/doc/man/man1/allcm.man1.pdf
 %doc %{_mandir}/man1/allec.1*
@@ -143,29 +143,29 @@ of programs and packages.
 %setup -c -a0 -a1
 
 perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
-    texmf/scripts/tetex/updmap.pl
+    texmf/scripts/texlive/updmap.pl
 
 %build
 
 %install
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    ln -sf %{_texmfdistdir}/scripts/tetex/updmap.pl updmap
-    ln -sf %{_texmfdistdir}/scripts/tetex/updmap-sys.sh updmap-sys
-    ln -sf %{_texmfdistdir}/scripts/tetex/allcm.sh allcm
+    ln -sf %{_texmfdistdir}/scripts/texlive/updmap.pl updmap
+    ln -sf %{_texmfdistdir}/scripts/texlive/updmap-sys.sh updmap-sys
+    ln -sf %{_texmfdistdir}/scripts/texlive/allcm.sh allcm
     ln -sf allcm allec
-    ln -sf %{_texmfdistdir}/scripts/tetex/allneeded.sh allneeded
-    ln -sf %{_texmfdistdir}/scripts/tetex/dvi2fax.sh dvi2fax
-    ln -sf %{_texmfdistdir}/scripts/tetex/dvired.sh dvired
-    ln -sf %{_texmfdistdir}/scripts/tetex/fmtutil.sh fmtutil
-    ln -sf %{_texmfdistdir}/scripts/tetex/fmtutil-sys.sh fmtutil-sys
-    ln -sf %{_texmfdistdir}/scripts/tetex/kpsetool.sh kpsetool
-    ln -sf %{_texmfdistdir}/scripts/tetex/kpsewhere.sh kpsewhere
-    ln -sf %{_texmfdistdir}/scripts/tetex/texconfig-dialog.sh texconfig-dialog
-    ln -sf %{_texmfdistdir}/scripts/tetex/texconfig-sys.sh texconfig-sys
-    ln -sf %{_texmfdistdir}/scripts/tetex/texlinks.sh texlinks
-    ln -sf %{_texmfdistdir}/scripts/tetex/updmap.pl updmap
-    ln -sf %{_texmfdistdir}/scripts/tetex/updmap-sys.sh updmap-sys
+    ln -sf %{_texmfdistdir}/scripts/texlive/allneeded.sh allneeded
+    ln -sf %{_texmfdistdir}/scripts/texlive/dvi2fax.sh dvi2fax
+    ln -sf %{_texmfdistdir}/scripts/texlive/dvired.sh dvired
+    ln -sf %{_texmfdistdir}/scripts/texlive/fmtutil.sh fmtutil
+    ln -sf %{_texmfdistdir}/scripts/texlive/fmtutil-sys.sh fmtutil-sys
+    ln -sf %{_texmfdistdir}/scripts/texlive/kpsetool.sh kpsetool
+    ln -sf %{_texmfdistdir}/scripts/texlive/kpsewhere.sh kpsewhere
+    ln -sf %{_texmfdistdir}/scripts/texlive/texconfig-dialog.sh texconfig-dialog
+    ln -sf %{_texmfdistdir}/scripts/texlive/texconfig-sys.sh texconfig-sys
+    ln -sf %{_texmfdistdir}/scripts/texlive/texlinks.sh texlinks
+    ln -sf %{_texmfdistdir}/scripts/texlive/updmap.pl updmap
+    ln -sf %{_texmfdistdir}/scripts/texlive/updmap-sys.sh updmap-sys
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
