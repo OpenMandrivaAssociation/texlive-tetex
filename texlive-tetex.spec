@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	14
+Release:	15
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
@@ -143,7 +143,7 @@ of programs and packages.
 %setup -c -a0 -a1
 
 perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
-    texmf/scripts/texlive/updmap.pl
+    texmf-dist/scripts/texlive/updmap.pl
 
 %build
 
