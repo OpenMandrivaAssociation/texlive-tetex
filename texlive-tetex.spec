@@ -1,4 +1,4 @@
-# revision 31860
+# revision 32132
 # category TLCore
 # catalog-ctan /obsolete/systems/unix/teTeX
 # catalog-date 2012-09-11 08:43:58 +0200
@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	15
+Release:	16
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
@@ -52,6 +52,8 @@ of programs and packages.
 %{_bindir}/dvired
 %{_bindir}/fmtutil
 %{_bindir}/fmtutil-sys
+# installed by texlive-kpathsea.bin
+#%%{_bindir}/kpsetool
 %{_bindir}/kpsewhere
 %{_bindir}/texconfig-dialog
 %{_bindir}/texconfig-sys
