@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	16
+Release:	17
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
