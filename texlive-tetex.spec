@@ -6,7 +6,7 @@
 # catalog-version 3.0
 Name:		texlive-tetex
 Version:	3.0
-Release:	29
+Release:	30
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
@@ -50,16 +50,12 @@ of programs and packages.
 %{_bindir}/allneeded
 %{_bindir}/dvi2fax
 %{_bindir}/dvired
-%{_bindir}/fmtutil
-%{_bindir}/fmtutil-sys
 # installed by texlive-kpathsea.bin
 #%%{_bindir}/kpsetool
 %{_bindir}/kpsewhere
 %{_bindir}/texconfig-dialog
 %{_bindir}/texconfig-sys
 %{_bindir}/texlinks
-%{_bindir}/updmap
-%{_bindir}/updmap-sys
 %{_texmfdistdir}/dvips/tetex/config.builtin35
 %{_texmfdistdir}/dvips/tetex/config.dfaxhigh
 %{_texmfdistdir}/dvips/tetex/config.dfaxlo
@@ -95,16 +91,13 @@ of programs and packages.
 %{_texmfdistdir}/scripts/texlive/allneeded.sh
 %{_texmfdistdir}/scripts/texlive/dvi2fax.sh
 %{_texmfdistdir}/scripts/texlive/dvired.sh
-%{_texmfdistdir}/scripts/texlive/fmtutil-sys.sh
+# This is almost certainly obsoleted by texlive-texlive-scripts fmtutil.pl
 %{_texmfdistdir}/scripts/texlive/fmtutil.sh
 %{_texmfdistdir}/scripts/texlive/kpsetool.sh
 %{_texmfdistdir}/scripts/texlive/kpsewhere.sh
 %{_texmfdistdir}/scripts/texlive/texconfig-dialog.sh
 %{_texmfdistdir}/scripts/texlive/texconfig-sys.sh
 %{_texmfdistdir}/scripts/texlive/texlinks.sh
-%{_texmfdistdir}/scripts/texlive/updmap-sys.sh
-%{_texmfdistdir}/scripts/texlive/updmap.pl
-%config(noreplace) %{_texmfdistdir}/web2c/updmap.cfg
 %doc %{_mandir}/man1/allcm.1*
 %doc %{_texmfdistdir}/doc/man/man1/allcm.man1.pdf
 %doc %{_mandir}/man1/allec.1*
@@ -116,9 +109,7 @@ of programs and packages.
 %doc %{_mandir}/man1/dvired.1*
 %doc %{_texmfdistdir}/doc/man/man1/dvired.man1.pdf
 %doc %{_mandir}/man1/fmtutil-sys.1*
-%doc %{_texmfdistdir}/doc/man/man1/fmtutil-sys.man1.pdf
 %doc %{_mandir}/man1/fmtutil.1*
-%doc %{_texmfdistdir}/doc/man/man1/fmtutil.man1.pdf
 %doc %{_mandir}/man1/kpsepath.1*
 %doc %{_texmfdistdir}/doc/man/man1/kpsepath.man1.pdf
 %doc %{_mandir}/man1/kpsetool.1*
@@ -130,13 +121,9 @@ of programs and packages.
 %doc %{_mandir}/man1/texlinks.1*
 %doc %{_texmfdistdir}/doc/man/man1/texlinks.man1.pdf
 %doc %{_mandir}/man1/updmap-sys.1*
-%doc %{_texmfdistdir}/doc/man/man1/updmap-sys.man1.pdf
 %doc %{_mandir}/man1/updmap.1*
-%doc %{_texmfdistdir}/doc/man/man1/updmap.man1.pdf
 %doc %{_mandir}/man5/fmtutil.cnf.5*
-%doc %{_texmfdistdir}/doc/man/man5/fmtutil.cnf.man5.pdf
 %doc %{_mandir}/man5/updmap.cfg.5*
-%doc %{_texmfdistdir}/doc/man/man5/updmap.cfg.man5.pdf
 %doc %{_texmfdistdir}/doc/tetex/TETEXDOC.pdf
 %doc %{_texmfdistdir}/doc/tetex/teTeX-FAQ
 
@@ -152,22 +139,16 @@ perl -pi -e 's|\$TEXMFROOT/tlpkg|%{_datadir}/tlpkg|;'		\
 %install
 mkdir -p %{buildroot}%{_bindir}
 pushd %{buildroot}%{_bindir}
-    ln -sf %{_texmfdistdir}/scripts/texlive/updmap.pl updmap
-    ln -sf %{_texmfdistdir}/scripts/texlive/updmap-sys.sh updmap-sys
     ln -sf %{_texmfdistdir}/scripts/texlive/allcm.sh allcm
     ln -sf allcm allec
     ln -sf %{_texmfdistdir}/scripts/texlive/allneeded.sh allneeded
     ln -sf %{_texmfdistdir}/scripts/texlive/dvi2fax.sh dvi2fax
     ln -sf %{_texmfdistdir}/scripts/texlive/dvired.sh dvired
-    ln -sf %{_texmfdistdir}/scripts/texlive/fmtutil.sh fmtutil
-    ln -sf %{_texmfdistdir}/scripts/texlive/fmtutil-sys.sh fmtutil-sys
     ln -sf %{_texmfdistdir}/scripts/texlive/kpsetool.sh kpsetool
     ln -sf %{_texmfdistdir}/scripts/texlive/kpsewhere.sh kpsewhere
     ln -sf %{_texmfdistdir}/scripts/texlive/texconfig-dialog.sh texconfig-dialog
     ln -sf %{_texmfdistdir}/scripts/texlive/texconfig-sys.sh texconfig-sys
     ln -sf %{_texmfdistdir}/scripts/texlive/texlinks.sh texlinks
-    ln -sf %{_texmfdistdir}/scripts/texlive/updmap.pl updmap
-    ln -sf %{_texmfdistdir}/scripts/texlive/updmap-sys.sh updmap-sys
 popd
 mkdir -p %{buildroot}%{_datadir}
 cp -fpar texmf-dist %{buildroot}%{_datadir}
@@ -176,3 +157,16 @@ mv %{buildroot}%{_texmfdistdir}/doc/man/man1/*.1 %{buildroot}%{_mandir}/man1
 mkdir -p %{buildroot}%{_mandir}/man5
 mv %{buildroot}%{_texmfdistdir}/doc/man/man5/*.5 %{buildroot}%{_mandir}/man5
 rm -f %{buildroot}%{_bindir}/kpsetool
+
+# Now in texlive-texlive-scripts
+rm -f \
+	%{buildroot}%{_texmfdistdir}/doc/man/man1/fmtutil-sys.man1.pdf  \
+	%{buildroot}%{_texmfdistdir}/doc/man/man1/fmtutil.man1.pdf \
+	%{buildroot}%{_texmfdistdir}/doc/man/man1/updmap-sys.man1.pdf \
+	%{buildroot}%{_texmfdistdir}/doc/man/man1/updmap.man1.pdf \
+	%{buildroot}%{_texmfdistdir}/doc/man/man5/fmtutil.cnf.man5.pdf \
+	%{buildroot}%{_texmfdistdir}/doc/man/man5/updmap.cfg.man5.pdf \
+	%{buildroot}%{_texmfdistdir}/scripts/texlive/fmtutil-sys.sh \
+	%{buildroot}%{_texmfdistdir}/scripts/texlive/updmap-sys.sh \
+	%{buildroot}%{_texmfdistdir}/scripts/texlive/updmap.pl \
+	%{buildroot}%{_texmfdistdir}/web2c/updmap.cfg
