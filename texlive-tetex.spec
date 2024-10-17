@@ -9,7 +9,7 @@ Version:	3.0
 Release:	30
 Summary:	scripts and files originally written for or included in teTeX
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
+URL:		https://www.ctan.org/tex-archive/obsolete/systems/unix/teTeX
 License:	OTHER-FREE
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/tetex.doc.tar.xz
